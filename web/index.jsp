@@ -9,32 +9,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Bin.Empleado" %>
 <html>
   <head>
     <title>HR Sample Application</title>
   </head>
   <body>
-  Welcome to our sample.
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Email</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <%
-      ArrayList<Entidad_empleado> posts=(ArrayList<Entidad_empleado>) request.getAttribute("employees");
-      for (Entidad_empleado post: posts) {
-    %>
-    <tr>
-      <td><%=post.getEmployeeId()%></td>
-      <td><%=post.getLastName()%></td>
-      <td><%=post.getFirstName()%></td>
-    </tr>
-    <%}%>
-  </table>
-
+  <jsp:useBean id="ObjectLista" class="Bin.Empleado"/>
+  <p><jsp:getProperty name="ObjectLista" property="employees"/></p>
   </body>
 </html>
