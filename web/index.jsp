@@ -15,8 +15,6 @@
   </head>
   <body>
   Welcome to our sample.
-
-
   <table>
     <thead>
       <tr>
@@ -26,17 +24,16 @@
         <th>Acciones</th>
       </tr>
     </thead>
-    <tbody>
-    <% ArrayList<Entidad_empleado> list = (ArrayList<Entidad_empleado>) request.getAttribute("View_Empleado");
-
-// print the information about every category of the list
-      for(Entidad_empleado emp : list) {
-        out.println(emp.getFirstName());
-        out.println(emp.getEmployeeId());
-        out.println(emp.getLastName());
-      }
+    <%
+      ArrayList<Entidad_empleado> posts=(ArrayList<Entidad_empleado>) request.getAttribute("employees");
+      for (Entidad_empleado post: posts) {
     %>
-    </tbody>
+    <tr>
+      <td><%=post.getEmployeeId()%></td>
+      <td><%=post.getLastName()%></td>
+      <td><%=post.getFirstName()%></td>
+    </tr>
+    <%}%>
   </table>
 
   </body>

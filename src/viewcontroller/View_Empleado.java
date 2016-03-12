@@ -48,6 +48,5 @@ public class View_Empleado extends HttpServlet {
             }
 
         }
-
     }
 }
